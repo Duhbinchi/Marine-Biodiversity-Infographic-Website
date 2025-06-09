@@ -52,6 +52,8 @@ h1 {
     justify-content: center;
     gap: 2rem;
     margin: 1.5rem 0;
+    margin-top: -0rem;
+    padding-bottom: 2rem;
 }
 
 .marine-icons span {
@@ -62,20 +64,26 @@ section {
     margin-bottom: 2rem;
 }
 
+.container-row {
+    display: flex;
+    gap: 1rem; /* Reduce this value for less space, e.g., 0.5rem */
+    margin-bottom: 2rem;
+}
+
+
 /* ...existing code... */
 .container {
+    position: relative;
     max-width: 400px;
-    margin: 2rem auto;
     background: rgba(158, 233, 235, 0.7); 
     border-radius: 16px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    padding: 1rem;
-    max-height: 2.5em;
-    overflow: hidden;
-    transition: max-height 0.4s;
 
-    margin-right: auto;
+    padding: 1rem;
+    margin-right: 1rem;
     margin-left: 2rem;
+    margin-top: -2rem;
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1); 
 }
 
 .container h2 {
@@ -85,40 +93,73 @@ section {
     border-radius: 8px;
 }
 
-.container h2:hover {
-    background: rgba(0, 156, 217, 0.5);
-    transition: background 0.3s, color 0.3s;
+.container:hover h2 {
+    background-color: rgba(0, 156, 217, 0.5);
+    color: #fff;
+    transition: color 0.2s;
 }
 
 .container img {
-    width: 100%;
-    height: auto;
+    width: 400px;
+    height: 300px;
     border-radius: 8px;
-    margin-bottom: 1rem;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s 0.3s, transform 0.5s 0.3s; /* 0.3s delay */
-    /* The delay (0.3s) matches your desired effect */
-}
-
-.container:hover img {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.5s 0.3s, transform 0.5s 0.3s;
 }
 
 .container:hover {
     max-height: 500px;
     overflow: visible;
+    /* make the color a bit darker */
+    background: rgba(158, 233, 235, 0.8);
     transform: scale(1.1);
-    transition: max-height 0.4s, transform 0.2s;
 }
 
-
-.hidden {
-    overflow: none;
+.fun-fact-popup {
+    position: absolute;
+    top: 0rem;
+    right: -350px; /* Adjust as needed to move popup to the right */
+    width: 300px;
+    background: #fffbe6;
+    color: #0077b6;
+    border: 2px solid #ffd166;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    font-size: 1rem;
+    z-index: 10;
+    transition: opacity 0.3s;
+    opacity: 1;
 }
 
+.fun-fact-popup img {
+    width: 300px;
+    height: 250px;
+    border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+    .fun-fact-popup {
+        position: static;
+        width: 100%;
+        margin-top: 1rem;
+        right: auto;
+    }
+}
+
+.fun-fact-popup {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.fun-fact-popup p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.container:hover .fun-fact-popup {
+    opacity: 1;
+    pointer-events: auto;
+}
 
 
 footer {

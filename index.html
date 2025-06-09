@@ -1,4 +1,9 @@
-<!-- Maybe change fonts? -->
+<!-- 
+ > Maybe change fonts? 
+ > at 100% size its too big
+ > add a home logo at the top left
+ > Add a reference menu where it has [1]... for references
+--> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,14 +46,28 @@
             </span>
         </div>
 
-        <div class="container">
-            <h2>Why Marine Biodiversity Matters</h2>
+        <div class="container-row">
 
-            <div class="hidden">
-
-                <p>Marine biodiversity is vital for the health of our planet. Oceans cover more than 70% of the Earth's surface and are home to millions of species, many yet to be discovered. Healthy marine ecosystems provide food, medicine, and livelihoods for billions of people.</p>
-                <img src="images/coral.jpg">
+            <div class="container">
+                <h2>Why Marine Biodiversity Matters</h2>
+                <div class="hidden">
+                    <p>Marine biodiversity is vital for the health of our planet. Oceans cover more than 70% of the Earth's surface and are home to millions of species, many yet to be discovered. Healthy marine ecosystems provide food, medicine, and livelihoods for billions of people.</p>
+                    <img src="images/coral.jpg">
+                </div>
             </div>
+        
+            <div class="container">
+                <h2>Impact on Human Health</h2>
+                <div class="hidden">
+                    <p>Marine biodiversity plays a crucial role in human health. Oceans produce over half of the world's oxygen and absorb significant amounts of carbon dioxide, helping to mitigate climate change. Additionally, many marine species are sources of new medicines and treatments.</p>
+                    <img src="images/algae.jpg">
+                </div>
+                <div class="fun-fact-popup">
+                    <p><strong>Fun Fact:</strong> Photosynthesizing algae in the ocean produce around 70% of the world's oxygen.</p>
+                    <img src="images/algae-fact.jpg">
+                </div>
+            </div>
+
         </div>
 
     <footer>
@@ -61,5 +80,6 @@
         container.classList.toggle('open');
     });
     </script>
+
 </body>
 </html>
