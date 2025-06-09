@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(to bottom, #b3e0ff 0%, #0099cc 100%);
+    color: #033649;
+}
+
+header {
+    background: #006994;
+    color: #fff;
+    padding: 2rem 1rem 1rem 1rem;
+    position: relative;
+    text-align: center;
+}
+
+.wave {
+    position: absolute;
+    left: 0; right: 0; bottom: -1px;
+    width: 100%;
+    height: 60px;
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: rgba(255,255,255,0.9);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.marine-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.5rem 0;
+}
+
+.marine-icons span {
+    font-size: 2.5rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #006994;
+    color: #fff;
+    border-radius: 0 0 16px 16px;
+}
+
+/* ...existing code... */
+.icon-pop {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.icon-pop .popup {
+    visibility: hidden;
+    width: 650px;         /* Reduced width */
+    background: #fff;
+    color: #0077b6;
+    text-align: center;
+    border-radius: 8px;
+    padding: 6px 10px;    /* Reduced padding */
+    position: absolute;
+    z-index: 10;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+    font-size: 0.50em;    /* Slightly smaller text */
+}
+
+.icon-pop:hover .popup {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.icon-pop:hover {
+    transform: scale(1.3);
+    transition: transform 0.2s;
+}
+
+/* ...existing code... */
+@media (max-width: 600px) {
+    main { padding: 1rem; }
+    h1 { font-size: 1.5rem; }
+    .marine-icons span { font-size: 1.5rem; }
+}
