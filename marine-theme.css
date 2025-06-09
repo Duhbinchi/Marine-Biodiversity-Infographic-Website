@@ -90,6 +90,23 @@ section {
     transition: background 0.3s, color 0.3s;
 }
 
+.container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s 0.3s, transform 0.5s 0.3s; /* 0.3s delay */
+    /* The delay (0.3s) matches your desired effect */
+}
+
+.container:hover img {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s 0.3s, transform 0.5s 0.3s;
+}
+
 .container:hover {
     max-height: 500px;
     overflow: visible;
