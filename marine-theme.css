@@ -1,3 +1,5 @@
+
+
 body {
     margin: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
@@ -8,7 +10,7 @@ body {
 }
 
 header {
-    background: rgba(0, 105, 148, 0.7);
+    background: rgba(0, 156, 217, 0.7); /* Semi-transparent blue */
     color: #fff;
     padding: 0.5rem 0.1rem 1rem 1rem;
     position: relative;
@@ -30,14 +32,14 @@ header p {
     height: 60px;
 }
 
-main {
+/* main {
     max-width: 800px;
     margin: 2rem auto;
-    background: rgba(158, 233, 235, 0.7); /* Semi-transparent white */
+    background: rgba(158, 233, 235, 0.7); 
     border-radius: 16px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.08);
     padding: 2rem;
-}
+} */
 
 h1 {
     font-size: 2.5rem;
@@ -60,10 +62,52 @@ section {
     margin-bottom: 2rem;
 }
 
+/* ...existing code... */
+.container {
+    max-width: 400px;
+    margin: 2rem auto;
+    background: rgba(158, 233, 235, 0.7); 
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    padding: 1rem;
+    max-height: 2.5em;
+    overflow: hidden;
+    transition: max-height 0.4s;
+
+    margin-right: auto;
+    margin-left: 2rem;
+}
+
+.container h2 {
+    cursor: pointer;
+    margin: 0;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.container h2:hover {
+    background: rgba(0, 156, 217, 0.5);
+    transition: background 0.3s, color 0.3s;
+}
+
+.container:hover {
+    max-height: 500px;
+    overflow: visible;
+    transform: scale(1.1);
+    transition: max-height 0.4s, transform 0.2s;
+}
+
+
+.hidden {
+    overflow: none;
+}
+
+
+
 footer {
     text-align: center;
     padding: 1rem;
-    background: rgba(0, 105, 148, 0.8);
+    background: rgba(0, 156, 217, 0.8);
     color: #fff;
     border-radius: 0 0 16px 16px;
 }
