@@ -1,18 +1,45 @@
-
-
-body {
+/* CSS Reset and Base Styles */
+* {
     margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: linear-gradient(to bottom, #b3e0ff 0%, #0099cc 100%);
-    color: #033649;
-    background-image: url('images/bg-reef.jpg');
-    background-size: cover;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #033649;
+    line-height: 1.6;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #b3e0ff 0%, #0099cc 100%);
+    background-image: url('images/bg-reef.jpg');
+    background-size: cover;
+    font-size: 0.95em;
+}
+
+/* Variables */
+:root {
+    --primary-color: #0099cc;
+    --secondary-color: #b3e0ff;
+    --accent-color: #ffd166;
+    --dark-color: #033649;
+    --light-color: #fff;
+    --container-max-width: 280px;
+    --spacing-unit: 1rem;
+    --border-radius: 16px;
+    --box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+/* Header Styles */
 header {
-    background: rgba(0, 156, 217, 0.7); /* Semi-transparent blue */
-    color: #fff;
-    padding: 0.5rem 0.1rem 1rem 1rem;
+    background: rgba(0, 156, 217, 0.7);
+    color: var(--light-color);
+    padding: min(0.7em, 1.2%) min(0.1em, 0.5%) min(1em, 2%) min(1em, 2%);
     position: relative;
     text-align: center;
     margin-top: -20px;
@@ -24,6 +51,12 @@ header p {
     margin-bottom: 35px;
 }
 
+header h1 {
+    font-size: 1.7rem;
+    margin-top: 1rem;
+    letter-spacing: 2px;
+}
+
 .wave {
     position: absolute;
     opacity: 0.5;
@@ -32,128 +65,111 @@ header p {
     height: 60px;
 }
 
-/* main {
-    max-width: 800px;
-    margin: 2rem auto;
-    background: rgba(158, 233, 235, 0.7); 
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    padding: 2rem;
-} */
-
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: 2px;
+/* Main Content Layout */
+main {
+    flex: 1;
+    padding: 0 var(--spacing-unit);
 }
 
 .marine-icons {
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    margin: 1.5rem 0;
-    margin-top: -0rem;
+    gap: 1rem;
+    margin: 1rem 0;
+    margin-top: -2.8rem;
     padding-bottom: 2rem;
 }
 
 .marine-icons span {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
 }
 
-section {
-    margin-bottom: 2rem;
-}
-
+/* Container Styles */
 .container-row {
     display: flex;
-    gap: 1rem; /* Reduce this value for less space, e.g., 0.5rem */
+    gap: 1rem;
     margin-bottom: 2rem;
 }
 
-
-/* ...existing code... */
 .container {
     position: relative;
-    max-width: 400px;
-    background: rgba(158, 233, 235, 0.7); 
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    max-width: var(--container-max-width);
+    background: rgba(158, 233, 235, 0.7);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 0.7rem;
+    margin: -1rem 0.7rem 0;
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
 
-    padding: 1rem;
-    margin-right: 1rem;
-    margin-left: 2rem;
-    margin-top: -2rem;
-    transition: transform 0.3s cubic-bezier(.4,0,.2,1); 
+/* Add this style */
+.container-text {
+    min-height: 70px; /* Adjust as needed */
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 12px; /* Space between text and image */
 }
 
 .container h2 {
+    font-size: 1rem;
     cursor: pointer;
-    margin: 0;
-    padding: 5px;
+    margin: 2;
+    padding: 3px;
     border-radius: 8px;
+}
+
+.container p {
+    margin-top: -0.5em;
+    font-size: 0.8rem;
+    color: var(--dark-color);
 }
 
 .container:hover h2 {
-    background-color: rgba(0, 156, 217, 0.5);
-    color: #fff;
+    background-color: #0099cc80; /* 80 = 50% alpha */
+    color: var(--light-color);
     transition: color 0.2s;
 }
 
-.container img {
-    width: 400px;
-    height: 300px;
-    border-radius: 8px;
-}
-
 .container:hover {
-    max-height: 500px;
-    overflow: visible;
-    /* make the color a bit darker */
-    background: rgba(158, 233, 235, 0.8);
     transform: scale(1.1);
+    background: rgba(158, 233, 235, 0.8);
 }
 
+/* Image Styles */
+.container img {
+    margin-top: auto;
+    width: 100%;
+    height: 200px;
+}
+
+/* Popup Styles */
 .fun-fact-popup {
     position: absolute;
-    top: 0rem;
-    right: -350px; /* Adjust as needed to move popup to the right */
+    top: 0;
+    right: -300px;
     width: 300px;
     background: #fffbe6;
     color: #0077b6;
-    border: 2px solid #ffd166;
+    border: 3px solid #ffd166;
     border-radius: 10px;
     padding: 1rem;
     box-shadow: 0 4px 16px rgba(0,0,0,0.12);
     font-size: 1rem;
     z-index: 10;
     transition: opacity 0.3s;
-    opacity: 1;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .fun-fact-popup img {
-    width: 300px;
+    width: 100%;
     height: 250px;
     border-radius: 8px;
-}
-
-@media (max-width: 900px) {
-    .fun-fact-popup {
-        position: static;
-        width: 100%;
-        margin-top: 1rem;
-        right: auto;
-    }
-}
-
-.fun-fact-popup {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
-}
-
-.fun-fact-popup p {
-    margin: 0;
-    font-size: 1rem;
+    object-fit: cover;
 }
 
 .container:hover .fun-fact-popup {
@@ -161,16 +177,26 @@ section {
     pointer-events: auto;
 }
 
-
 footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     padding: 1rem;
-    background: rgba(0, 156, 217, 0.8);
-    color: #fff;
-    border-radius: 0 0 16px 16px;
+    background: rgba(0, 153, 204, 0.8);
+    color: var(--light-color);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    height: 35px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    right: 0;
 }
 
-/* ...existing code... */
+/* Icon Popup Styles */
 .icon-pop {
     position: relative;
     display: inline-block;
@@ -180,22 +206,24 @@ footer {
 
 .icon-pop .popup {
     visibility: hidden;
-    width: 650px;         /* Reduced width */
-    background: #fff;
+    width: 650px;
+    background: var(--light-color);
     color: #0077b6;
     text-align: center;
     border-radius: 8px;
-    padding: 6px 10px;    /* Reduced padding */
     position: absolute;
     z-index: 10;
-    bottom: 120%;
+    /* Change these two lines: */
+    top: 90%;              /* Position below the icon */
+    bottom: auto;           /* Remove bottom positioning */
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     opacity: 0;
     transition: opacity 0.2s;
     pointer-events: none;
-    font-size: 0.50em;    /* Slightly smaller text */
+    font-size: 0.875rem;
+    z-index: 1000;
 }
 
 .icon-pop:hover .popup {
@@ -209,9 +237,33 @@ footer {
     transition: transform 0.2s;
 }
 
-/* ...existing code... */
+/* Media Queries */
+@media (max-width: 900px) {
+    .fun-fact-popup {
+        position: static;
+        width: 100%;
+        margin-top: 1rem;
+        right: auto;
+    }
+}
+
 @media (max-width: 600px) {
-    main { padding: 1rem; }
-    h1 { font-size: 1.5rem; }
-    .marine-icons span { font-size: 1.5rem; }
+    main {
+        padding: 1rem;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    .marine-icons span {
+        font-size: 1.5rem;
+    }
+}
+
+/* Utility Classes */
+.margin-reset {
+    margin: 0 !important;
+}
+
+.padding-reset {
+    padding: 0 !important;
 }
